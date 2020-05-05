@@ -6,9 +6,9 @@ export interface UserApi {
 
 export interface User {
     firstName: string,
-    emailNotificationsEnabled: boolean,
     id: string,
     enabled: boolean,
+    emailNotificationsEnabled?: boolean,
     company?: Company,
     lastName?: string,
     userStatus?: string,

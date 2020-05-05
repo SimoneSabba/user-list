@@ -3,7 +3,7 @@
     <mat-chip
       [ngClass]="{'userList__item--enabled': user.enabled}"
       class="userList__item"
-      *ngFor="let user of users track by index"
+      *ngFor="let user of users"
       [removable]="user.enabled"
       (removed)="removeUser(user)"
     >

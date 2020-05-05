@@ -14,15 +14,9 @@ export class AppComponent implements OnInit {
   constructor(private readonly userService: UserService) {}
   users$: Observable<User[]>;
 
-  mapUserArray(res: ApiResponse): User[] {
-    return res.list.entries.map(
-      (user: UserApi) => user.entry
-    )
-  }
-
   ngOnInit(): void {
-    this.users$ = this.userService.getUsers().pipe(
-      map(this.mapUserArray)
+    this.users$ = this.userService.getJSON().pipe(
+      map(this.userService.getUsers)
     );
   }
 }
