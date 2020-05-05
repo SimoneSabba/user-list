@@ -1,0 +1,20 @@
+<ng-container *ngIf="users$ | async as users">
+  <div class="userList">
+    <mat-chip-list #chipList aria-label="Users list">
+      <mat-chip
+        [ngClass]="{'userList__item--enabled': user.enabled}"
+        class="userList__item"
+        *ngFor="let user of users track by index"
+        [removable]="user.enabled"
+        (removed)="removeUser(user)"
+      >
+        {{user.firstName}} {{user.lastName}}
+        <mat-icon matChipRemove *ngIf="user.enabled">cancel</mat-icon>
+      </mat-chip>
+    </mat-chip-list>
+  </div>
+</ng-container>
+
+
+
+

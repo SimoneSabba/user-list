@@ -1,0 +1,20 @@
+$activeColor: #388E3C;
+$baseColor: #BDBDBD;
+
+.userList {
+  display: flex;
+  padding: 50px;
+
+  &__item {
+    background-color: $baseColor;
+    color: white;
+    
+    &--enabled {
+      background-color: $activeColor;
+    }
+
+    mat-icon {
+      color: white;
+    }
+  }
+}
