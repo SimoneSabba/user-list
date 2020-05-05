@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { UserService } from '../../services/user.service';
-import { Observable } from 'rxjs';
 import { User } from 'src/app/interfaces/user.interface';
 
 @Component({
@@ -9,16 +8,16 @@ import { User } from 'src/app/interfaces/user.interface';
   styleUrls: ['./user-list.component.scss']
 })
 export class UserListComponent implements OnInit {
-  users$: Observable<User[]> = this.userService.users$;
+  @Input() users: User[];
 
-  constructor(private readonly userService: UserService) { }
+  constructor(private readonly userService: UserService) {}
 
   ngOnInit(): void {
     this.userService.getUsers();
   }
 
   removeUser(userToDelete: User) {
-    this.userService.deleteUser(userToDelete);
+    this.users = this.userService.deleteUser(this.users, userToDelete);
   }
 
 }
